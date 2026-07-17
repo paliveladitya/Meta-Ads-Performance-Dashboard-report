@@ -1,0 +1,67 @@
+table campaigns
+	lineageTag: 494853ba-6539-4913-afe5-34abb970c453
+
+	column campaign_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3dc82e60-29bd-49cd-94fe-123186f28d11
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: c3346653-be77-43bd-b2b3-460045bc027e
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: string
+		lineageTag: 7bc77912-7978-45e9-9efc-3b60321c8113
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: string
+		lineageTag: 0a6db85a-36ab-40dc-84f8-747fc88ec887
+		summarizeBy: none
+		sourceColumn: end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column duration_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b0fd9ed-a215-45d2-9552-99ff3f23be48
+		summarizeBy: none
+		sourceColumn: duration_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_budget
+		dataType: double
+		lineageTag: ebd23581-ea2c-4b50-8169-b7784a3b6761
+		summarizeBy: none
+		sourceColumn: total_budget
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition campaigns = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Aditya\Downloads\Raw Data-20251114T194439Z-1-001\Raw Data\campaigns.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"campaign_id", Int64.Type}, {"name", type text}, {"start_date", type text}, {"end_date", type text}, {"duration_days", Int64.Type}, {"total_budget", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

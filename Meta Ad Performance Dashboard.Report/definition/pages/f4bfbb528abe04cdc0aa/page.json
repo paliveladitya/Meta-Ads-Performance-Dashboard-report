@@ -1,0 +1,222 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "f4bfbb528abe04cdc0aa",
+  "displayName": "Inatagram",
+  "displayOption": "FitToPage",
+  "height": 900,
+  "width": 1570,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "19f3934e33cac79d7c14",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ads"
+              }
+            },
+            "Property": "ad_platform"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "ads",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "a"
+                          }
+                        },
+                        "Property": "ad_platform"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Facebook'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Instagram'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "3abb4da714667b3b0a94",
+    "type": "Tooltip",
+    "parameters": []
+  },
+  "objects": {
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 2,
+                    "Percent": 0.6
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "50D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "foregroundColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 1,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "type": "Tooltip",
+  "visualInteractions": [
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "3f6b0b9584920b4bc4cb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "502ab0cddcd5c6380e0a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "163e1f5ad9c1da2d207b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "97727c7053eea49c0335",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "bc1e630d61e127672c0e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "47b76dc070425b298e4d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "00f544904c2c3b34d035",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "945e18385a71445be60d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "d4e8cd7aa4ca73d49782",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "8b3cbd09ec721b746837",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "922d8cafe4bdc2d0ad03",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "2e4c3f6d9a0b0a0900b7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7d71352b7852106772ec",
+      "target": "ebd39abb51b073710108",
+      "type": "NoFilter"
+    }
+  ]
+}

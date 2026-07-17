@@ -1,0 +1,26 @@
+relationship d7432f4d-6703-4582-98df-7fc497107590
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ad_events.timestamp
+	toColumn: LocalDateTable_c7392640-f8d3-4009-bdcc-01a9de2a55e5.Date
+
+relationship AutoDetected_ae0966df-9b0e-4d3a-8659-535276886a59
+	fromColumn: ad_events.ad_id
+	toColumn: ads.ad_id
+
+relationship AutoDetected_767dbbf4-c763-49a2-937c-edac39c09dfb
+	fromColumn: ads.campaign_id
+	toColumn: campaigns.campaign_id
+
+relationship cd88b8b2-0704-a256-9fa7-4f085ce371c6
+	fromColumn: ad_events.user_id
+	toColumn: users.user_id
+
+relationship 49481994-64e5-4aea-80f4-31204f9cea2b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Calender Table'.Date
+	toColumn: LocalDateTable_61e183ef-27a1-4d65-b3cb-8543a7a74fcb.Date
+
+relationship 792cf623-18c9-cf89-2415-7547c4038360
+	fromColumn: ad_events.'Event Date'
+	toColumn: 'Calender Table'.Date
+

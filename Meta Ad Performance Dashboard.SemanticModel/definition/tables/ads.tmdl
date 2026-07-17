@@ -1,0 +1,73 @@
+table ads
+	lineageTag: d417ea53-31a2-4cae-a8ec-67554666bf24
+
+	column ad_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 06299039-6131-4fe3-bab9-e60ae39abaf5
+		summarizeBy: none
+		sourceColumn: ad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 688e4bae-711b-47d6-b230-0d71cdf580af
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ad_platform
+		dataType: string
+		lineageTag: f350ed94-b4d8-4ef3-ac8e-b1f6bb9301e2
+		summarizeBy: none
+		sourceColumn: ad_platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column ad_type
+		dataType: string
+		lineageTag: da0c6c35-0eff-4072-afec-92d4dcf9d7e3
+		summarizeBy: none
+		sourceColumn: ad_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_gender
+		dataType: string
+		lineageTag: 993d0d39-c302-447e-8ac7-b9ea7ce835cc
+		summarizeBy: none
+		sourceColumn: target_gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_age_group
+		dataType: string
+		lineageTag: 87faf55e-6dbc-4273-bb14-7946bf732f61
+		summarizeBy: none
+		sourceColumn: target_age_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_interests
+		dataType: string
+		lineageTag: e5ec4cc1-8657-452a-bf2b-ef008edb0501
+		summarizeBy: none
+		sourceColumn: target_interests
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ads = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Aditya\Downloads\Raw Data-20251114T194439Z-1-001\Raw Data\ads.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ad_id", Int64.Type}, {"campaign_id", Int64.Type}, {"ad_platform", type text}, {"ad_type", type text}, {"target_gender", type text}, {"target_age_group", type text}, {"target_interests", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

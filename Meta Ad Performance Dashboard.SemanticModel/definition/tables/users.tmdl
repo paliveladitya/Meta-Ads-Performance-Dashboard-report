@@ -1,0 +1,72 @@
+table users
+	lineageTag: 156db775-5002-4dcc-ae2d-c7a952cff1c1
+
+	column user_id
+		dataType: string
+		lineageTag: d6b82287-2c55-406b-b051-190c72abf527
+		summarizeBy: none
+		sourceColumn: user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_gender
+		dataType: string
+		lineageTag: 28abca73-2bbd-42aa-a4b7-6c2d8aaa9339
+		summarizeBy: none
+		sourceColumn: user_gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_age
+		dataType: int64
+		formatString: 0
+		lineageTag: 714f9b1c-cbcb-4816-a17a-2f508a692f15
+		summarizeBy: none
+		sourceColumn: user_age
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_group
+		dataType: string
+		lineageTag: 296c6466-7a46-414d-917f-ede2de278dc2
+		summarizeBy: none
+		sourceColumn: age_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: ec8750e1-a737-40bf-9ddb-c28cf2e65a95
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column location
+		dataType: string
+		lineageTag: ce0853f8-36da-4940-8efc-7d7c2f9d0eac
+		summarizeBy: none
+		sourceColumn: location
+
+		annotation SummarizationSetBy = Automatic
+
+	column interests
+		dataType: string
+		lineageTag: ed7ce01d-a361-4675-8ba8-624f1c7f90b5
+		summarizeBy: none
+		sourceColumn: interests
+
+		annotation SummarizationSetBy = Automatic
+
+	partition users = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Aditya\Downloads\Raw Data-20251114T194439Z-1-001\Raw Data\users.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"user_id", type text}, {"user_gender", type text}, {"user_age", Int64.Type}, {"age_group", type text}, {"country", type text}, {"location", type text}, {"interests", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

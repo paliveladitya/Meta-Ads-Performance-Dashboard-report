@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "48a19edb9e7360dcddc5",
+  "displayName": "Calender tool tip 2",
+  "displayOption": "ActualSize",
+  "height": 430,
+  "width": 320,
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip"
+}

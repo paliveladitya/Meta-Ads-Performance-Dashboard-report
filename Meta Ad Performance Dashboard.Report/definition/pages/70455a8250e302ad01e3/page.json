@@ -1,0 +1,215 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "70455a8250e302ad01e3",
+  "displayName": "Facebook",
+  "displayOption": "FitToPage",
+  "height": 900,
+  "width": 1570,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "19f3934e33cac79d7c14",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ads"
+              }
+            },
+            "Property": "ad_platform"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "ads",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "a"
+                          }
+                        },
+                        "Property": "ad_platform"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Facebook'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "6c88b7a7495e62abaa73",
+    "type": "Tooltip",
+    "parameters": []
+  },
+  "objects": {
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 2,
+                    "Percent": 0.6
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "50D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "foregroundColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 1,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "type": "Tooltip",
+  "visualInteractions": [
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "24d245178065a0a36524",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "f088428f0ae541c76150",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "39133029ca6b38878021",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "c6da8122a027a0d1a025",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "73c23b3f3c6cd9d0d1c5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "d5745c36b302db5b8060",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "470e6297bd2d7c112e56",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "651a48ca77083e310cd1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "ab3bc63994b5a9559306",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "4875cf7eea8ec949980d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "f6e3c5d12217069a103b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "3b39bb41bd1e766aa265",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028dca4170b23d0d87db",
+      "target": "2a1a7419446e50ac0a8e",
+      "type": "NoFilter"
+    }
+  ]
+}

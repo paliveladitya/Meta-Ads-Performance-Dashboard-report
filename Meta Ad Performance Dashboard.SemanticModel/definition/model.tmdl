@@ -1,0 +1,26 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["ad_events","ads","campaigns","users"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table ad_events
+ref table DateTableTemplate_e9a49cd2-5352-4bd2-be19-23d7528c1ee8
+ref table LocalDateTable_c7392640-f8d3-4009-bdcc-01a9de2a55e5
+ref table ads
+ref table campaigns
+ref table users
+ref table 'Select Dynamic Measure'
+ref table 'Calender Table'
+ref table LocalDateTable_61e183ef-27a1-4d65-b3cb-8543a7a74fcb
+
+ref cultureInfo en-US
+

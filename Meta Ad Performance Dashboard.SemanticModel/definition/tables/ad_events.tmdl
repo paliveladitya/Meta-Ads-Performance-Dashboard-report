@@ -1,0 +1,166 @@
+table ad_events
+	lineageTag: f76a62ac-1726-4284-bc34-79c22f06bc27
+
+	measure Impressions = COUNTROWS(FILTER(ad_events, ad_events[event_type] = "Impression"))
+		formatString: 0
+		lineageTag: 97c8938f-d483-4424-867f-160eedf05285
+
+	measure Clicks = COUNTROWS(FILTER(ad_events, ad_events[event_type] = "Click"))
+		formatString: 0.0
+		lineageTag: 3ca9ea34-6727-4e63-8793-bddfb0055701
+
+	measure Shares = COUNTROWS(FILTER(ad_events, ad_events[event_type] = "Share"))
+		formatString: 0.0
+		lineageTag: 6f4b4450-a4e1-4c7b-b825-765cc2f6eca7
+
+	measure Comments = COUNTROWS(FILTER(ad_events, ad_events[event_type] = "Comment"))
+		formatString: 0.0
+		lineageTag: 0288f345-7887-41ff-a9a6-bf40d08d298d
+
+	measure Purchases = COUNTROWS(FILTER(ad_events, ad_events[event_type] = "Purchase"))
+		formatString: 0.0
+		lineageTag: adf6dfbe-5d05-46a2-9b3b-c8b0cdcaf984
+
+	measure Engagements = [Shares] + [Clicks] + [Comments]
+		formatString: 0.0
+		lineageTag: d77f926b-43d4-46a7-8e46-14d4ab986af2
+
+	measure 'CRT (Click Through Rate)' = DIVIDE([Clicks], [Impressions], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3932db5d-2482-4bbf-af46-3aa6b6bf1421
+
+	measure 'Engagement Rate' = (DIVIDE([Engagements], [Impressions], 0))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6cb4bbf0-1917-4502-b2b7-f2659d34d4b9
+
+	measure 'Conversion Rate' = DIVIDE([Purchases], [Clicks], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b3273395-b5ed-4d58-8cf9-a6f95451197c
+
+	measure 'Purchase Rate' = DIVIDE([Purchases], [Impressions], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6f0313ef-4623-41a6-bb6d-731c4d4b26a0
+
+	measure 'Total Budget' = SUM(campaigns[total_budget])
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
+		lineageTag: f38a1a4e-17ca-41db-af69-9b6e3209ac83
+
+	measure 'Avg. Budget per campaign' = AVERAGE(campaigns[total_budget])
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
+		lineageTag: 3643eb93-2848-4e56-8357-a8ec6b1f4e3b
+
+	measure 'Gender Title' = SELECTEDVALUE('Select Dynamic Measure'[Dynamic Title]) & "by Gender"
+		lineageTag: 1ac1d59f-124b-4d2f-9d28-09289388b535
+
+	measure 'Age Title' = SELECTEDVALUE('Select Dynamic Measure'[Dynamic Title]) & "by Age"
+		lineageTag: 80ec6674-808e-4c73-844c-3a47e490eb39
+
+	measure 'Map Title' = SELECTEDVALUE('Select Dynamic Measure'[Dynamic Title]) & "by Country"
+		lineageTag: df5c8db0-ce16-4ffa-b058-9a86631cca39
+
+	measure 'Calender Title' = "Analysis by Month"
+		lineageTag: 3dacb827-ae6f-4d03-bb9d-b97c8107d19c
+
+	measure 'Weekly Title' = "Weekly " & SELECTEDVALUE('Select Dynamic Measure'[Dynamic Title]) & " Trend"
+		lineageTag: 82472913-bb03-452f-b911-ed011fe4a9e8
+
+	measure 'Hourly Title' = "Hourly " & SELECTEDVALUE('Select Dynamic Measure'[Dynamic Title]) & " Trend"
+		lineageTag: a582af31-0de9-4a8f-9d48-e9de54709036
+
+	measure 'Matrix Title' = "Analysis by Ad Type"
+		lineageTag: 6c603bdd-be5f-4484-867e-d34aea6d2fc6
+
+	column event_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 07025182-6269-4bd5-9683-07e39723babc
+		summarizeBy: sum
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ad_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 99668680-6974-4a54-a0f5-4a8847e21955
+		summarizeBy: none
+		sourceColumn: ad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_id
+		dataType: string
+		lineageTag: 203279ea-9b70-4768-9606-98bcc9884958
+		summarizeBy: none
+		sourceColumn: user_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 08377d13-21fb-42a4-8611-9e4b51860350
+		summarizeBy: none
+		sourceColumn: timestamp
+
+		variation Variation
+			isDefault
+			relationship: d7432f4d-6703-4582-98df-7fc497107590
+			defaultHierarchy: LocalDateTable_c7392640-f8d3-4009-bdcc-01a9de2a55e5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: string
+		lineageTag: c53c8daf-b61d-4ba4-b56a-ef034c638ba2
+		summarizeBy: none
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_of_day
+		dataType: string
+		lineageTag: 5a6d0762-1a65-40b1-99b6-bfd779cead96
+		summarizeBy: none
+		sourceColumn: time_of_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_type
+		dataType: string
+		lineageTag: cbe09b98-3528-4253-9833-b6c9a4cd3a9b
+		summarizeBy: none
+		sourceColumn: event_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Event Date' = DATEVALUE(ad_events[timestamp])
+		formatString: Long Date
+		lineageTag: 86443459-f597-4c14-979f-fe9667c0ffd0
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Event Hour' = HOUR(ad_events[timestamp])
+		formatString: 0
+		lineageTag: 49e9a266-60dd-4b42-95a7-e53d73fe54f3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ad_events = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Aditya\Downloads\Raw Data-20251114T194439Z-1-001\Raw Data\ad_events.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"event_id", Int64.Type}, {"ad_id", Int64.Type}, {"user_id", type text}, {"timestamp", type datetime}, {"day_of_week", type text}, {"time_of_day", type text}, {"event_type", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

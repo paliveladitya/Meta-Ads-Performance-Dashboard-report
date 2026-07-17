@@ -1,0 +1,61 @@
+table 'Calender Table'
+	lineageTag: e6bbf0db-e965-47d8-bf74-ff84f1afb500
+
+	column Date
+		formatString: Long Date
+		lineageTag: a88dac92-1bb1-46d8-a1a0-4d6690e9e24b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 49481994-64e5-4aea-80f4-31204f9cea2b
+			defaultHierarchy: LocalDateTable_61e183ef-27a1-4d65-b3cb-8543a7a74fcb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Month = ```
+			FORMAT('Calender Table'[Date], "mmm")
+			
+			```
+		lineageTag: 8d09625e-8550-4545-8139-1801ddb62481
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name' = FORMAT('Calender Table'[Date], "ddd")
+		lineageTag: b23192df-bad1-4530-8b19-eca6f13861a9
+		summarizeBy: none
+		sortByColumn: 'Week Day'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Number' = FORMAT('Calender Table'[Date], "d")
+		lineageTag: c63d44a1-c1e8-4006-b432-eac4e348900b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Day' = WEEKDAY('Calender Table'[Date],2)
+		formatString: 0
+		lineageTag: 99b3100d-f2a5-4184-8f9f-73f2769d7bd5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Number' = WEEKNUM('Calender Table'[Date],2)
+		formatString: 0
+		lineageTag: 41265972-37c7-4eec-aba3-e1a2bf701c25
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Calender Table' = calculated
+		mode: import
+		source = CALENDAR(MIN(ad_events[Event Date]), max(ad_events[Event Date]))
+
+	annotation PBI_Id = 2686e9f7bbb64d76af75214ca476a474
+

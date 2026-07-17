@@ -1,0 +1,65 @@
+table 'Select Dynamic Measure'
+	lineageTag: 201c5fd8-d940-4387-8a04-ec9271760db5
+
+	column 'Select Dynamic Measure'
+		lineageTag: 4ee8d7ad-7ae0-453e-b810-4eff5fc9a532
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Select Dynamic Measure Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Select Dynamic Measure Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Select Dynamic Measure Fields'
+		lineageTag: d80d704f-d989-43cf-a405-6ba04f59e330
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Select Dynamic Measure Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Select Dynamic Measure Order'
+		formatString: 0
+		lineageTag: 0a7ede6f-9bdb-4687-872d-88f7bfa19ce9
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dynamic Title' = ```
+			IF('Select Dynamic Measure'[Select Dynamic Measure Order] = 0, "Impressions",
+			                IF('Select Dynamic Measure'[Select Dynamic Measure Order] = 1, "Engagements",
+			                IF('Select Dynamic Measure'[Select Dynamic Measure Order] = 2, "Clicks",
+			                IF('Select Dynamic Measure'[Select Dynamic Measure Order] = 3, "Shares",
+			                IF('Select Dynamic Measure'[Select Dynamic Measure Order] = 4, "Comments",
+			                IF('Select Dynamic Measure'[Select Dynamic Measure Order] = 5, "Purchases", "Other"
+			                ))))))
+			
+			```
+		lineageTag: 3f50b08c-2744-4f62-af8b-1633a92951cd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Select Dynamic Measure' = calculated
+		mode: import
+		source =
+				{
+				    ("Impressions", NAMEOF('ad_events'[Impressions]), 0),
+				    ("Engagements", NAMEOF('ad_events'[Engagements]), 1),
+				    ("Clicks", NAMEOF('ad_events'[Clicks]), 2),
+				    ("Shares", NAMEOF('ad_events'[Shares]), 3),
+				    ("Comments", NAMEOF('ad_events'[Comments]), 4),
+				    ("Purchases", NAMEOF('ad_events'[Purchases]), 5)
+				}
+
+	annotation PBI_Id = 82449443f3164bba89d0c9c06556cea6
+
