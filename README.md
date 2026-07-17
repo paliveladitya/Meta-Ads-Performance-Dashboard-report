@@ -1,3 +1,4 @@
+<img width="1917" height="972" alt="Meta ads dashboard report image" src="https://github.com/user-attachments/assets/c65a1255-0406-4a01-ac31-4ef4b1cc9690" />
 # 📊 Meta Ads Performance Dashboard Report
 
 > **A Business Intelligence project that analyzes Meta (Facebook & Instagram) advertising performance using interactive dashboards, key performance indicators (KPIs), and data-driven insights to optimize marketing campaigns.**
