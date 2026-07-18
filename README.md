@@ -1,5 +1,5 @@
-<img width="1917" height="972" alt="Meta ads dashboard report image" src="https://github.com/user-attachments/assets/c65a1255-0406-4a01-ac31-4ef4b1cc9690" />
-# 📊 Meta Ads Performance Dashboard Report
+<img width="1274" height="728" alt="Meta Ads performance dashboard" src="https://github.com/user-attachments/assets/a6cce840-1818-4766-8e6a-e76d360718ee" />
+# 📊 Meta Ads Performance Dashboard
 
 > **A Business Intelligence project that analyzes Meta (Facebook & Instagram) advertising performance using interactive dashboards, key performance indicators (KPIs), and data-driven insights to optimize marketing campaigns.**
 
@@ -7,7 +7,7 @@
 
 ## 📌 Project Overview
 
-The **Meta Ads Performance Dashboard Report** is a Business Analytics project developed to evaluate the effectiveness of Meta advertising campaigns. Using data visualization and analytical reporting techniques, this project transforms raw advertising data into actionable business insights.
+The **Meta Ads Performance Dashboard** is a Business Analytics project developed to evaluate the effectiveness of Meta advertising campaigns. Using data visualization and analytical reporting techniques, this project transforms raw advertising data into actionable business insights.
 
 The dashboard enables marketers and business stakeholders to monitor campaign performance, identify trends, evaluate return on investment (ROI), and make informed marketing decisions.
 
